@@ -1,7 +1,8 @@
+import type { LoginResponse, TokenResponse } from '../../types.d.ts';
 import { Agent } from '../Agent.ts';
 
 export async function login(body = {}) {
-  const response: Response = await Agent.getInstance().post(
+  const response: LoginResponse = await Agent.getInstance().post(
     undefined,
     `${process.env.URL}/Account/v1/Login`,
     body,
@@ -10,7 +11,7 @@ export async function login(body = {}) {
 }
 
 export async function getToken(body = {}) {
-  const response: any = await Agent.getInstance().post(
+  const response: TokenResponse = await Agent.getInstance().post(
     undefined,
     `${process.env.URL}/Account/v1/GenerateToken`,
     body,

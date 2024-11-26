@@ -16,7 +16,7 @@ export class User {
     }
   }
 
-  isExpired(userDetails: UserDetails): boolean {
+  isExpired(userDetails: UserDetails) {
     if (userDetails?.expires) return new Date(userDetails.expires) < new Date();
     return true;
   }

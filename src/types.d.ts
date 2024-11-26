@@ -43,3 +43,10 @@ export interface Book {
 export interface BookService {
   get: () => Promise<Book[]>;
 }
+
+export interface TokenResponse {
+  token: string;
+  expires: string;
+  status: string;
+  result: string;
+}
