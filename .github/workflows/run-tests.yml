@@ -24,14 +24,14 @@ jobs:
         run: npm install @estruyf/github-actions-reporter
 
       - name: Run Tests (API)
-        run: pnpn run test:api
+        run: pnpm run test:api
         env:
           URL: ${{ secrets.URL }}
           USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
 
       - name: Run Tests (UI)
-        run: pnpn run test:ui
+        run: pnpm run test:ui
         env:
           URL: ${{ secrets.URL }}
           USERNAME: ${{ secrets.USERNAME }}
