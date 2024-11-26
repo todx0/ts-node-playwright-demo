@@ -1,0 +1,243 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      '@estruyf/github-actions-reporter':
+        specifier: ^1.9.2
+        version: 1.9.2(@playwright/test@1.49.0)
+      '@playwright/test':
+        specifier: ^1.49.0
+        version: 1.49.0
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.4.5
+      dprint:
+        specifier: ^0.47.5
+        version: 0.47.5
+    devDependencies:
+      '@types/node':
+        specifier: ^22.9.4
+        version: 22.9.4
+
+packages:
+
+  '@actions/core@1.11.1':
+    resolution: {integrity: sha512-hXJCSrkwfA46Vd9Z3q4cpEpHB1rL5NG04+/rbqW9d3+CSvtB1tYe8UTpAlixa1vj0m/ULglfEK2UKxMGxCxv5A==}
+
+  '@actions/exec@1.1.1':
+    resolution: {integrity: sha512-+sCcHHbVdk93a0XT19ECtO/gIXoxvdsgQLzb2fE2/5sIZmWQuluYyjPQtrtTHdU1YzTZ7bAPN4sITq2xi1679w==}
+
+  '@actions/http-client@2.2.3':
+    resolution: {integrity: sha512-mx8hyJi/hjFvbPokCg4uRd4ZX78t+YyRPtnKWwIl+RzNaVuFpQHfmlGVfsKEJN8LwTCvL+DfVgAM04XaHkm6bA==}
+
+  '@actions/io@1.1.3':
+    resolution: {integrity: sha512-wi9JjgKLYS7U/z8PPbco+PvTb/nRWjeoFlJ1Qer83k/3C5PHQi28hiVdeE2kHXmIL99mQFawx8qt/JPjZilJ8Q==}
+
+  '@dprint/darwin-arm64@0.47.5':
+    resolution: {integrity: sha512-aVa3F//dkvEeNA7DCSlVcLxB0CV6zXpfbJZ/xsd+xgbayCXFuFr7qt0M6T4WP3gkQn5D7Zu8/pbXfRXQXo9qlQ==}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@dprint/darwin-x64@0.47.5':
+    resolution: {integrity: sha512-84lmSLM/idIQ4UBkBHU1chP0WTldRjzLOEN22/XbdB1JGOIVN1pJIIU0lsmVWXaNI4SvGfty+thhGn73SSlQwA==}
+    cpu: [x64]
+    os: [darwin]
+
+  '@dprint/linux-arm64-glibc@0.47.5':
+    resolution: {integrity: sha512-Zk7Ut9Trgl2ssGWx0u3YegnRQFXivKaK1fPEimg/uMwdaLtWFGvNs6DACAJk34d883zmDkTQvllqY1kc78CeBg==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@dprint/linux-arm64-musl@0.47.5':
+    resolution: {integrity: sha512-KmCu1yX5+/2MbT9n0iAgSK1gc6sQBcDayq8QRO7TRSs+gTDAZ/yQXHkhLdlk5fWsTR1mDQPVRG+2nAjHDhk8EA==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@dprint/linux-x64-glibc@0.47.5':
+    resolution: {integrity: sha512-oBwENMikvcM+eT6JdliMIM+TOiV4VuBJGK+AN1sTOW45VeiYvmzGPOQwCxVeFq4MnZkMfrycC/PAY3C7Vcuh6w==}
+    cpu: [x64]
+    os: [linux]
+
+  '@dprint/linux-x64-musl@0.47.5':
+    resolution: {integrity: sha512-B1IGyaP0k25JDhqmR/UpvgyNtnclBoXV7ZNQbvygehBkTeC69afwzpUxjQ2pKj2F9bl1Rby//fhsAFOg60PzsA==}
+    cpu: [x64]
+    os: [linux]
+
+  '@dprint/win32-arm64@0.47.5':
+    resolution: {integrity: sha512-tKSPwGWsKc+QAdsx6UQav9AY8WXm+B5Mx23ujliJJMRss6Dnlmg17NjbAnSBSqXSrfqaMeQx6d4gujPpOS3F9A==}
+    cpu: [arm64]
+    os: [win32]
+
+  '@dprint/win32-x64@0.47.5':
+    resolution: {integrity: sha512-ljbrGv5rDR00ziBFY6V+qLhtLHm2dsjgiFG9OU7kr3vHEj4eN31nwxU5W2mh0eMoRk7IbcJ5ahTJDLgoYdvfgw==}
+    cpu: [x64]
+    os: [win32]
+
+  '@estruyf/github-actions-reporter@1.9.2':
+    resolution: {integrity: sha512-D2+ePwTjbd4siY7VIWX1dJrE1bU3x9OO+FOj99hqU4zQhVGwMm0ozgNDUzJgHxdRZKtFoGcYWV5YLfZettR38A==}
+    peerDependencies:
+      '@playwright/test': ^1.42.1
+
+  '@fastify/busboy@2.1.1':
+    resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
+    engines: {node: '>=14'}
+
+  '@playwright/test@1.49.0':
+    resolution: {integrity: sha512-DMulbwQURa8rNIQrf94+jPJQ4FmOVdpE5ZppRNvWVjvhC+6sOeo28r8MgIpQRYouXRtt/FCCXU7zn20jnHR4Qw==}
+    engines: {node: '>=18'}
+    hasBin: true
+
+  '@types/node@22.9.4':
+    resolution: {integrity: sha512-d9RWfoR7JC/87vj7n+PVTzGg9hDyuFjir3RxUHbjFSKNd9mpxbxwMEyaCim/ddCmy4IuW7HjTzF3g9p3EtWEOg==}
+
+  ansi-to-html@0.7.2:
+    resolution: {integrity: sha512-v6MqmEpNlxF+POuyhKkidusCHWWkaLcGRURzivcU3I9tv7k4JVhFcnukrM5Rlk2rUywdZuzYAZ+kbZqWCnfN3g==}
+    engines: {node: '>=8.0.0'}
+    hasBin: true
+
+  dotenv@16.4.5:
+    resolution: {integrity: sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==}
+    engines: {node: '>=12'}
+
+  dprint@0.47.5:
+    resolution: {integrity: sha512-EAP3OLYZXiW66HKMlhu6Gu0o7mzBVTWyMyuAAgT7dBtMX+W+pPJmIwyRUnTRQNyyFO4S7bAaa21rzIgo97Bg9A==}
+    hasBin: true
+
+  entities@2.2.0:
+    resolution: {integrity: sha512-p92if5Nz619I0w+akJrLZH0MX0Pb5DX39XOwQTtXSdQQOaYH03S1uIQp4mhOZtAXrxq4ViO67YTiLBo2638o9A==}
+
+  fsevents@2.3.2:
+    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
+    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
+    os: [darwin]
+
+  marked@12.0.2:
+    resolution: {integrity: sha512-qXUm7e/YKFoqFPYPa3Ukg9xlI5cyAtGmyEIzMfW//m6kXwCy2Ps9DYf5ioijFKQ8qyuscrHoY04iJGctu2Kg0Q==}
+    engines: {node: '>= 18'}
+    hasBin: true
+
+  playwright-core@1.49.0:
+    resolution: {integrity: sha512-R+3KKTQF3npy5GTiKH/T+kdhoJfJojjHESR1YEWhYuEKRVfVaxH3+4+GvXE5xyCngCxhxnykk0Vlah9v8fs3jA==}
+    engines: {node: '>=18'}
+    hasBin: true
+
+  playwright@1.49.0:
+    resolution: {integrity: sha512-eKpmys0UFDnfNb3vfsf8Vx2LEOtflgRebl0Im2eQQnYMA4Aqd+Zw8bEOB+7ZKvN76901mRnqdsiOGKxzVTbi7A==}
+    engines: {node: '>=18'}
+    hasBin: true
+
+  tunnel@0.0.6:
+    resolution: {integrity: sha512-1h/Lnq9yajKY2PEbBadPXj3VxsDDu844OnaAo52UVmIzIvwwtBPIuNvkjuzBlTWpfJyUbG3ez0KSBibQkj4ojg==}
+    engines: {node: '>=0.6.11 <=0.7.0 || >=0.7.3'}
+
+  undici-types@6.19.8:
+    resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
+
+  undici@5.28.4:
+    resolution: {integrity: sha512-72RFADWFqKmUb2hmmvNODKL3p9hcB6Gt2DOQMis1SEBaV6a4MH8soBvzg+95CYhCKPFedut2JY9bMfrDl9D23g==}
+    engines: {node: '>=14.0'}
+
+snapshots:
+
+  '@actions/core@1.11.1':
+    dependencies:
+      '@actions/exec': 1.1.1
+      '@actions/http-client': 2.2.3
+
+  '@actions/exec@1.1.1':
+    dependencies:
+      '@actions/io': 1.1.3
+
+  '@actions/http-client@2.2.3':
+    dependencies:
+      tunnel: 0.0.6
+      undici: 5.28.4
+
+  '@actions/io@1.1.3': {}
+
+  '@dprint/darwin-arm64@0.47.5':
+    optional: true
+
+  '@dprint/darwin-x64@0.47.5':
+    optional: true
+
+  '@dprint/linux-arm64-glibc@0.47.5':
+    optional: true
+
+  '@dprint/linux-arm64-musl@0.47.5':
+    optional: true
+
+  '@dprint/linux-x64-glibc@0.47.5':
+    optional: true
+
+  '@dprint/linux-x64-musl@0.47.5':
+    optional: true
+
+  '@dprint/win32-arm64@0.47.5':
+    optional: true
+
+  '@dprint/win32-x64@0.47.5':
+    optional: true
+
+  '@estruyf/github-actions-reporter@1.9.2(@playwright/test@1.49.0)':
+    dependencies:
+      '@actions/core': 1.11.1
+      '@playwright/test': 1.49.0
+      ansi-to-html: 0.7.2
+      marked: 12.0.2
+
+  '@fastify/busboy@2.1.1': {}
+
+  '@playwright/test@1.49.0':
+    dependencies:
+      playwright: 1.49.0
+
+  '@types/node@22.9.4':
+    dependencies:
+      undici-types: 6.19.8
+
+  ansi-to-html@0.7.2:
+    dependencies:
+      entities: 2.2.0
+
+  dotenv@16.4.5: {}
+
+  dprint@0.47.5:
+    optionalDependencies:
+      '@dprint/darwin-arm64': 0.47.5
+      '@dprint/darwin-x64': 0.47.5
+      '@dprint/linux-arm64-glibc': 0.47.5
+      '@dprint/linux-arm64-musl': 0.47.5
+      '@dprint/linux-x64-glibc': 0.47.5
+      '@dprint/linux-x64-musl': 0.47.5
+      '@dprint/win32-arm64': 0.47.5
+      '@dprint/win32-x64': 0.47.5
+
+  entities@2.2.0: {}
+
+  fsevents@2.3.2:
+    optional: true
+
+  marked@12.0.2: {}
+
+  playwright-core@1.49.0: {}
+
+  playwright@1.49.0:
+    dependencies:
+      playwright-core: 1.49.0
+    optionalDependencies:
+      fsevents: 2.3.2
+
+  tunnel@0.0.6: {}
+
+  undici-types@6.19.8: {}
+
+  undici@5.28.4:
+    dependencies:
+      '@fastify/busboy': 2.1.1

@@ -1,0 +1,50 @@
+name: Run Tests
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  run_tests:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 23
+
+      - name: Install dependencies
+        run: pnpm i
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Install Github Actions Reporter
+        run: npm install @estruyf/github-actions-reporter
+
+      - name: Run Tests (API)
+        run: pnpn run test:api
+        env:
+          URL: ${{ secrets.URL }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+
+      - name: Run Tests (UI)
+        run: pnpn run test:ui
+        env:
+          URL: ${{ secrets.URL }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+
+      - name: Upload test report
+        if: success() || failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dev-full-ui-test-report
+          retention-days: 1
+          path: |
+            ./playwright-report/
+            ./test-results/
