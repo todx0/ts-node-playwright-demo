@@ -1,4 +1,4 @@
-import type { LoginResponse, TokenResponse } from '../../types.d.ts';
+import type { LoginResponse, TokenResponse } from '../../../types/types.js';
 import { Agent } from '../Agent.ts';
 
 export async function login(body = {}) {

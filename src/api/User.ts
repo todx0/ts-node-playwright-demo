@@ -1,4 +1,4 @@
-import type { LoginResponse, UserDetails } from '../types.d.ts';
+import type { LoginResponse, UserDetails } from '../../types/types.js';
 import { getToken, login } from './endpoints/authentication.ts';
 
 export class User {

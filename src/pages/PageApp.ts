@@ -1,6 +1,6 @@
 import { type Locator, type Page } from '@playwright/test';
+import { UserCredentials } from '../../types/types';
 import { ApiApp } from '../api/ApiApp';
-import { UserCredentials } from '../types';
 import { Login } from './login/Login';
 
 export class PageApp {

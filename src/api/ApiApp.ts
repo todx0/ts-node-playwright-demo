@@ -1,4 +1,4 @@
-import { BookService, UserCredentials, UserDetails } from '../types';
+import { BookService, UserCredentials, UserDetails } from '../../types/types';
 import { getBooks } from './endpoints/bookstore.ts';
 import { User } from './User.ts';
 

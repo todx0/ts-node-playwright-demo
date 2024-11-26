@@ -1,4 +1,4 @@
-import { Book } from '../../types';
+import { Book } from '../../../types/types';
 import { Agent } from '../Agent.ts';
 import { User } from '../User.ts';
 
