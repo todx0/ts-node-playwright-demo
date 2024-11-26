@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import { test } from '../../fixtures/fixture';
+import { test } from '../../src/fixtures/fixture';
 
 test.describe('Bookstore', { tag: '@UI' }, () => {
   test('Get Books', async ({ app }) => {
