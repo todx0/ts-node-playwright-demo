@@ -1,5 +1,4 @@
-import type { LoginResponse, TokenResponse } from '../../../types/types.js';
-import { Agent } from '../Agent.ts';
+import { Agent } from '@src/api/Agent';
 
 export async function login(body = {}) {
   const response: LoginResponse = await Agent.getInstance().post(

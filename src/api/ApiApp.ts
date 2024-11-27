@@ -1,6 +1,5 @@
-import { BookService, UserCredentials, UserDetails } from '../../types/types';
-import { getBooks } from './endpoints/bookstore.ts';
-import { User } from './User.ts';
+import { getBooks } from '@src/api/endpoints/bookstore';
+import { User } from '@src/api/User';
 
 export class ApiApp {
   public user: User;

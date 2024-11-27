@@ -1,5 +1,4 @@
-import type { LoginResponse, UserDetails } from '../../types/types.js';
-import { getToken, login } from './endpoints/authentication.ts';
+import { getToken, login } from '@src/api/endpoints/authentication';
 
 export class User {
   public userDetails: UserDetails;

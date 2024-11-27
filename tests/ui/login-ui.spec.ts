@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
-import { SystemErrors } from '../../src/constants/SystemErrors';
-import { test } from '../../src/fixtures/fixture';
+import { SystemErrors } from '@src/constants/SystemErrors';
+import { test } from '@src/fixtures/fixture';
 
 test.describe('Login', { tag: '@API' }, () => {
   test('Valid login', async ({ app }) => {

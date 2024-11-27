@@ -1,5 +1,5 @@
-import { retryFetch } from '../../utils/helpers.ts';
-import { User } from './User.ts';
+import { User } from '@src/api/User';
+import { retryFetch } from '@utils/helpers';
 
 export class Agent {
   private static instance: Agent;

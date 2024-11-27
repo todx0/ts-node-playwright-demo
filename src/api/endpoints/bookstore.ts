@@ -1,6 +1,5 @@
-import { Book } from '../../../types/types';
-import { Agent } from '../Agent.ts';
-import { User } from '../User.ts';
+import { Agent } from '@src/api/Agent';
+import { User } from '@src/api/User';
 
 export async function getBooks(user: User) {
   const response: { books: Book[] } = await Agent.getInstance().get(

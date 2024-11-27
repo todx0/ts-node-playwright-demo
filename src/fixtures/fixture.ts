@@ -1,6 +1,5 @@
 import { test as base } from '@playwright/test';
-import { AppFixture } from '../../types/types';
-import { PageApp } from '../pages/PageApp';
+import { PageApp } from '@src/pages/PageApp';
 
 export const test = base.extend<AppFixture>({
   app: async ({ browser }, use) => {
