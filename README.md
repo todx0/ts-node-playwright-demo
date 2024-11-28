@@ -1,34 +1,36 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-# About
+# E2E tests with Playwright
 
-A boilerplate / demo example and a reminder of how few lines of code and configs you need to get have a working Playwright framework with Node.js and Typescript support for API and UI testing.
+This is a boilerplate / demo of integration tests.
+Tests are developed in TypeScript with [Playwright](https://playwright.dev)
 
-## Demo
-
-Demo includes working example of an UI and API tests for Bookstore shop.
+- [Page Object Pattern](https://playwright.dev/docs/pom)
+- Github Actions for CI/CD workflows
+- [dprint](https://dprint.dev/) (lint and formatting)
+- [Commit lint](https://github.com/conventional-changelog/commitlint) and [Commitizen](https://github.com/commitizen/cz-cli#making-your-repo-commitizen-friendly)
+- [husky](https://typicode.github.io/husky/) pre-commit hooks
 
 ## Usage
 
 Run Github Actions workflow.
 
-To run API tests manually:
+Run API tests manually:
 
 ```bash
 pnpm run test:api
 ```
 
-To run UI tests manually:
+Run UI tests manually:
 
 ```bash
 pnpm run test:ui
 ```
 
-## Stack
+Commit changes:
+```bash
+pnpm run commit
+```
+This will trigger husky pre-commit hook for dprint formatting and run commitizen for commit message.
 
-- Node.js (pnpm)
-- TypeScript
-- Playwright
-- Github Actions for CI/CD workflows
-- dprint (lint and formatting)
-- commitizen + commitlint
+
