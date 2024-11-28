@@ -1,4 +1,4 @@
-import { getToken, login } from '@src/api/endpoints/authentication';
+import { generateToken, login } from '@src/api/endpoints/account';
 
 export class User {
   public userDetails: UserDetails;
@@ -10,14 +10,13 @@ export class User {
 
   async resetTokenIfExpired() {
     if (!this.userDetails.token || this.isExpired(this.userDetails)) {
-      const token = await getToken(this.userDetails);
-      this.userDetails.token = token;
+      const tokenResponse = await generateToken(this.userDetails);
+      this.userDetails.token = tokenResponse.token;
     }
   }
 
   isExpired(userDetails: UserDetails) {
-    if (userDetails?.expires) return new Date(userDetails.expires) < new Date();
-    return true;
+    return new Date(userDetails?.expires) > new Date();
   }
 
   async init() {

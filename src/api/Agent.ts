@@ -12,52 +12,54 @@ export class Agent {
     endpoint: string,
     options: RequestInit,
   ): Promise<T> {
+    // console.info('Request ->, endpoint, options);
     const response = await retryFetch(endpoint, options);
     const contentType = response.headers.get('Content-Type');
 
     if (!response.ok) {
-      throw new Error(`Request failed with status ${response.status}. ${response.body}`);
+      const errorBody = await response.text();
+      throw new Error(`Request failed with status ${response.status}. Response: ${errorBody}`);
     }
 
-    return contentType?.includes('application/json')
+    const responseBody = contentType?.includes('application/json')
       ? (await response.json()) as T
       : (await response.text()) as T;
+
+    // console.info(Response ->, responseBody);
+    return responseBody;
   }
 
-  async get<T>(user: User, endpoint: string): Promise<T> {
-    await user.init();
-    return this.request<T>(endpoint, { method: 'GET' });
+  async get<T>(user: User | undefined, endpoint: string): Promise<T> {
+    if (user) await user.init();
+    return this.request<T>(endpoint, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${user?.lastLoginDetails?.token}` },
+    });
   }
 
   async post<T>(user: User | undefined, endpoint: string, body: unknown): Promise<T> {
     if (user) await user.init();
     return this.request<T>(endpoint, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${user?.lastLoginDetails?.token}` },
       body: JSON.stringify(body),
     });
   }
 
-  async put<T>(user: User, endpoint: string, body: unknown): Promise<T> {
-    await user.init();
+  async put<T>(user: User | undefined, endpoint: string, body: unknown): Promise<T> {
+    if (user) await user.init();
     return this.request<T>(endpoint, {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    });
-  }
-
-  async patch<T>(user: User, endpoint: string, body: unknown): Promise<T> {
-    await user.init();
-    return this.request<T>(endpoint, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${user?.lastLoginDetails?.token}` },
       body: JSON.stringify(body),
     });
   }
 
   async delete<T>(user: User, endpoint: string): Promise<T> {
-    await user.init();
-    return this.request<T>(endpoint, { method: 'DELETE' });
+    if (user) await user.init();
+    return this.request<T>(endpoint, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${user?.lastLoginDetails?.token}` },
+    });
   }
 }

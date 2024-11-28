@@ -2,7 +2,7 @@ import { expect } from '@playwright/test';
 import { SystemErrors } from '@src/constants/SystemErrors';
 import { test } from '@src/fixtures/fixture';
 
-test.describe('Login', { tag: '@API' }, () => {
+test.describe('Login', { tag: '@UI' }, () => {
   test('Valid login', async ({ app }) => {
     await app.page.goto('/login');
     await app.login.username.fill(process.env.USERNAME!);
