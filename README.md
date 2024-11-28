@@ -6,6 +6,22 @@ A boilerplate / demo example and a reminder of how few lines of code and configs
 
 Demo includes working example of an UI and API tests for Bookstore shop.
 
+## Usage
+
+Run Github Actions workflow.
+
+To run API tests manually:
+
+```bash
+pnpm run test:api
+```
+
+To run UI tests manually:
+
+```bash
+pnpm run test:ui
+```
+
 ## Stack
 
 - Node.js (pnpm)
