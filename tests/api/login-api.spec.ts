@@ -4,15 +4,15 @@ import { PageApp } from '@src/pages/PageApp';
 
 test.describe('Bookstore', { tag: '@API' }, () => {
   test('Get Books', async ({ app }) => {
-    const books = await app.api.service.books.get();
+    const books = await app.service.bookstore.get();
     expect(books.length).toBeGreaterThan(0);
   });
 
   test('Add Books', async ({ app }) => {
-    await app.api.service.books.delete();
+    await app.service.bookstore.delete();
     const isbn = '9781593275846';
-    const addBooks = await app.api.service.books.add({
-      userId: app.api.user.lastLoginDetails.userId,
+    const addBooks = await app.service.bookstore.add({
+      userId: app.service.user.lastLoginDetails.userId,
       collectionOfIsbns: [{ isbn }],
     });
     expect(addBooks.books[0].isbn).toEqual(isbn);
@@ -21,27 +21,24 @@ test.describe('Bookstore', { tag: '@API' }, () => {
 
 test.describe('Authentication', { tag: '@API' }, () => {
   test('Get Authorized', async ({ app }) => {
-    const authorizedResponse = await app.api.service.account.getAuthorized();
+    const authorizedResponse = await app.service.account.getAuthorized();
     expect(authorizedResponse).toBeTruthy();
   });
 
   test('CRUD User', async ({ page, app }) => {
     const userCredentials = { userName: 'testUserx5558', password: 'MultipassportKD3307!' };
-
-    const createUserResponse = await app.api.service.account.user.create(userCredentials);
-
+    const createUserResponse = await app.service.account.user.create(userCredentials);
     const newApp = new PageApp(page, userCredentials);
-    await newApp.api.user.init();
-
-    const getUserResponseAfterCreate = await newApp.api.service.account.user.get(
-      newApp.api.user.lastLoginDetails.userId,
+    await newApp.service.user.init();
+    const getUserResponseAfterCreate = await newApp.service.account.user.get(
+      newApp.service.user.lastLoginDetails.userId,
     );
 
-    expect(createUserResponse.userID).toEqual(newApp.api.user.lastLoginDetails.userId);
+    expect(createUserResponse.userID).toEqual(newApp.service.user.lastLoginDetails.userId);
     expect(createUserResponse.username).toEqual(userCredentials.userName);
-    expect(getUserResponseAfterCreate.userId).toEqual(newApp.api.user.lastLoginDetails.userId);
+    expect(getUserResponseAfterCreate.userId).toEqual(newApp.service.user.lastLoginDetails.userId);
     expect(getUserResponseAfterCreate.username).toEqual(userCredentials.userName);
 
-    await newApp.api.service.account.user.delete(createUserResponse.userID);
+    await newApp.service.account.user.delete(createUserResponse.userID);
   });
 });

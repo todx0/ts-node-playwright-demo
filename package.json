@@ -2,15 +2,22 @@
   "name": "node-playwright-boilerplate",
   "scripts": {
     "test:ui": "pnpm exec playwright test -g @UI",
-    "test:api": "pnpm exec playwright test -g @API"
+    "test:api": "pnpm exec playwright test -g @API",
+    "prepare": "husky install",
+    "commit": "pnpm exec git-cz"
   },
   "dependencies": {
-    "@estruyf/github-actions-reporter": "^1.9.2",
     "@playwright/test": "^1.49.0",
-    "dotenv": "^16.4.5",
-    "dprint": "^0.47.5"
+    "dotenv": "^16.4.5"
   },
   "devDependencies": {
-    "@types/node": "^22.9.4"
+    "@commitlint/config-conventional": "^19.6.0",
+    "@estruyf/github-actions-reporter": "^1.9.2",
+    "@types/node": "^22.9.4",
+    "commitizen": "^4.3.1",
+    "commitlint": "^19.6.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "dprint": "^0.47.5",
+    "husky": "^9.1.7"
   }
 }

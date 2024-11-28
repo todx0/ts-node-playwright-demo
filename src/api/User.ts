@@ -21,8 +21,8 @@ export class User {
 
   async init() {
     await this.resetTokenIfExpired();
-    const loginRes: LoginResponse = await login(this.userDetails);
-    this.lastLoginDetails = loginRes;
+    const loginResponse: LoginResponse = await login(this.userDetails);
+    this.lastLoginDetails = loginResponse;
     return this.lastLoginDetails;
   }
 }

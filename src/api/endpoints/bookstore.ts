@@ -1,8 +1,8 @@
-import { Agent } from '@src/api/Agent';
+import { HttpAgent } from '@src/api/HttpAgent';
 import { User } from '@src/api/User';
 
 export async function getBooks(user: User) {
-  const response: BooksResponse = await Agent.getInstance().get(
+  const response: BooksResponse = await HttpAgent.getInstance().get(
     user,
     `${process.env.URL}/BookStore/v1/Books`,
   );
@@ -10,7 +10,7 @@ export async function getBooks(user: User) {
 }
 
 export async function addBooks(user: User, list: ListOfISBNs) {
-  const response: BooksResponse = await Agent.getInstance().post(
+  const response: BooksResponse = await HttpAgent.getInstance().post(
     user,
     `${process.env.URL}/BookStore/v1/Books`,
     list,
@@ -20,7 +20,7 @@ export async function addBooks(user: User, list: ListOfISBNs) {
 
 export async function deleteBooks(user: User) {
   if (!user.lastLoginDetails.userId) throw Error('No userId provided.');
-  const response: GenericResponse = await Agent.getInstance().delete(
+  const response: GenericResponse = await HttpAgent.getInstance().delete(
     user,
     `${process.env.URL}/BookStore/v1/Books?UserId=${user.lastLoginDetails.userId}`,
   );

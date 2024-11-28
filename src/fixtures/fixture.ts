@@ -11,7 +11,7 @@ export const test = base.extend<AppFixture>({
       password: process.env.PASSWORD!,
     });
 
-    await app.api.user.init();
+    await app.service.user.init();
 
     await use(app);
 

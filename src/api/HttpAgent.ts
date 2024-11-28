@@ -1,11 +1,11 @@
 import { User } from '@src/api/User';
 import { retryFetch } from '@utils/helpers';
 
-export class Agent {
-  private static instance: Agent;
+export class HttpAgent {
+  private static instance: HttpAgent;
 
-  static getInstance(): Agent {
-    return Agent.instance ??= new Agent();
+  static getInstance(): HttpAgent {
+    return HttpAgent.instance ??= new HttpAgent();
   }
 
   private async request<T>(

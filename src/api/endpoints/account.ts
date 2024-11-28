@@ -1,8 +1,8 @@
-import { Agent } from '@src/api/Agent';
+import { HttpAgent } from '@src/api/HttpAgent';
 import { User } from '@src/api/User';
 
 export async function login(body = {}) {
-  const response: LoginResponse = await Agent.getInstance().post(
+  const response: LoginResponse = await HttpAgent.getInstance().post(
     undefined,
     `${process.env.URL}/Account/v1/Login`,
     body,
@@ -11,7 +11,7 @@ export async function login(body = {}) {
 }
 
 export async function generateToken(body = {}) {
-  const response: TokenResponse = await Agent.getInstance().post(
+  const response: TokenResponse = await HttpAgent.getInstance().post(
     undefined,
     `${process.env.URL}/Account/v1/GenerateToken`,
     body,
@@ -20,7 +20,7 @@ export async function generateToken(body = {}) {
 }
 
 export async function getAuthorized(user: User) {
-  const response: AuthorizedResponse = await Agent.getInstance().post(
+  const response: AuthorizedResponse = await HttpAgent.getInstance().post(
     user,
     `${process.env.URL}/Account/v1/Authorized`,
     { userName: user.userDetails.userName, password: user.userDetails.password },
@@ -29,7 +29,7 @@ export async function getAuthorized(user: User) {
 }
 
 export async function createAccount(credentials: UserCredentials) {
-  const response: CreateUserResponse = await Agent.getInstance().post(
+  const response: CreateUserResponse = await HttpAgent.getInstance().post(
     undefined,
     `${process.env.URL}/Account/v1/User`,
     credentials,
@@ -38,7 +38,7 @@ export async function createAccount(credentials: UserCredentials) {
 }
 
 export async function deleteUser(user: User, uid: string) {
-  const response: GenericResponse = await Agent.getInstance().delete(
+  const response: GenericResponse = await HttpAgent.getInstance().delete(
     user,
     `${process.env.URL}/Account/v1/User/${uid}`,
   );
@@ -46,7 +46,7 @@ export async function deleteUser(user: User, uid: string) {
 }
 
 export async function getUser(user: User, uid: string) {
-  const response: GetUserResponse = await Agent.getInstance().get(
+  const response: GetUserResponse = await HttpAgent.getInstance().get(
     user,
     `${process.env.URL}/Account/v1/User/${uid}`,
   );

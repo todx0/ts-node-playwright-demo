@@ -1,15 +1,15 @@
 import { type Locator, type Page } from '@playwright/test';
-import { ApiApp } from '@src/api/ApiApp';
+import { ApiClient } from '@src/api/ApiClient';
 import { Login } from '@src/pages/login/Login';
 
 export class PageApp {
   public readonly page: Page;
   public readonly login: Login;
-  public readonly api: ApiApp;
+  public readonly service: ApiClient;
 
   constructor(page: Page, user: UserCredentials) {
     this.page = page;
     this.login = new Login(page);
-    this.api = new ApiApp(user);
+    this.service = new ApiClient(user);
   }
 }
