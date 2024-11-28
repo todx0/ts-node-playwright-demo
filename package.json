@@ -3,8 +3,8 @@
   "scripts": {
     "test:ui": "pnpm exec playwright test -g @UI",
     "test:api": "pnpm exec playwright test -g @API",
-    "prepare": "husky install",
-    "commit": "pnpm exec git-cz"
+    "commit": "pnpm exec git-cz",
+    "dprint:fmt": "dprint fmt"
   },
   "dependencies": {
     "@playwright/test": "^1.49.0",

@@ -1,1 +1,1 @@
-pnpm dprint fmt && git diff --exit-code
+pnpm run dprint:fmt
