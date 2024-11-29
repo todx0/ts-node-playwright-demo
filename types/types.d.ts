@@ -1,4 +1,3 @@
-import { User } from '@src/api/User';
 import { PageApp } from '@src/pages/PageApp';
 
 declare global {

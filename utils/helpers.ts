@@ -1,5 +1,3 @@
-import { FetchFunction } from '../types/types';
-
 export async function retry<T>(fn: () => Promise<T>, retries: number = 3, delay: number = 1000): Promise<T> {
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {

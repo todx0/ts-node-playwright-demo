@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import { test } from '@src/fixtures/fixture';
+import { test } from '@src/fixtures/test';
 import { PageApp } from '@src/pages/PageApp';
 
 test.describe('Bookstore', { tag: '@API' }, () => {
