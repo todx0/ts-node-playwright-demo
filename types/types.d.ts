@@ -3,6 +3,9 @@ import { PageApp } from '@src/pages/PageApp';
 declare global {
   /** APP */
 
+  interface CustomFixtures extends AppFixture {
+    randomTestUser: string;
+  }
   interface UserCredentials {
     userName: string;
     password: string;

@@ -1,13 +1,26 @@
 import { test as base } from '@playwright/test';
 import { PageApp } from '@src/pages/PageApp';
+import { getTestUsers } from '@utils/helpers';
 
-export const test = base.extend<AppFixture>({
-  app: async ({ browser }, use) => {
+const testUsers = getTestUsers();
+
+export const test = base.extend<CustomFixtures>({
+  randomTestUser: async ({}, use: any, workerInfo: any) => {
+    if (!testUsers) throw new Error('No test users.');
+
+    const userIndex = workerInfo.workerIndex % testUsers.length;
+
+    if (!process.env.CI) console.info('Using user:', testUsers[userIndex]);
+
+    await use(testUsers[userIndex]);
+  },
+
+  app: async ({ browser, randomTestUser }, use) => {
     const context = await browser.newContext();
     const page = await context.newPage();
 
     const app = new PageApp(page, {
-      userName: process.env.USERNAME!,
+      userName: randomTestUser,
       password: process.env.PASSWORD!,
     });
 
