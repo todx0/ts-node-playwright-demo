@@ -4,7 +4,7 @@ import { Config } from '@utils/Config';
 import { getTestUsers, retry } from '@utils/helpers';
 
 export const test = base.extend<CustomFixtures>({
-	randomTestUser: async (_, use, workerInfo) => {
+	randomTestUser: async ({}, use, workerInfo) => {
 		const testUsers = getTestUsers();
 		const userIndex = workerInfo.workerIndex % testUsers.length;
 		const testUser = testUsers[userIndex];

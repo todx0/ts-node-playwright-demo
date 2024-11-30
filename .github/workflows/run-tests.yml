@@ -21,7 +21,7 @@ jobs:
         run: pnpm i
 
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+        run: pnpm playwright install --with-deps
 
       - name: Install Github Actions Reporter
         run: pnpm install @estruyf/github-actions-reporter
