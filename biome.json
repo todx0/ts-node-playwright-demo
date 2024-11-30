@@ -5,6 +5,7 @@
 	},
 	"formatter": {
 		"indentStyle": "tab",
+		"indentWidth": 2,
 		"lineWidth": 150
 	},
 	"javascript": {
