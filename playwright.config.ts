@@ -11,7 +11,11 @@ export default defineConfig({
     ? [
       ['blob'],
       ['html'],
-      ['@estruyf/github-actions-reporter'],
+      ['@estruyf/github-actions-reporter', {
+        showError: true,
+        useDetails: true,
+        showTags: false,
+      }],
     ]
     : 'list',
   use: {
