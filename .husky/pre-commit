@@ -1,1 +1,1 @@
-pnpm run dprint:fmt
+pnpm run biome:fmt

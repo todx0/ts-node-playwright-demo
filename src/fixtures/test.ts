@@ -3,36 +3,34 @@ import { PageApp } from '@src/pages/PageApp';
 import { Config } from '@utils/Config';
 import { getTestUsers, retry } from '@utils/helpers';
 
-Config.validate();
-
 export const test = base.extend<CustomFixtures>({
-  randomTestUser: async ({}, use: any, workerInfo: any) => {
-    const testUsers = getTestUsers();
-    const userIndex = workerInfo.workerIndex % testUsers.length;
-    const testUser = testUsers[userIndex];
-    if (!process.env.CI) console.info(`Using user: ${testUser}`);
+	randomTestUser: async (_, use, workerInfo) => {
+		const testUsers = getTestUsers();
+		const userIndex = workerInfo.workerIndex % testUsers.length;
+		const testUser = testUsers[userIndex];
+		if (!process.env.CI) console.info(`Using user: ${testUser}`);
 
-    await use(testUsers[userIndex]);
-  },
+		await use(testUsers[userIndex]);
+	},
 
-  app: async ({ browser, randomTestUser }, use) => {
-    const context = await browser.newContext();
-    const page = await context.newPage();
+	app: async ({ browser, randomTestUser }, use) => {
+		const context = await browser.newContext();
+		const page = await context.newPage();
 
-    try {
-      const app = new PageApp(page, {
-        userName: randomTestUser,
-        password: Config.PASSWORD,
-      });
+		try {
+			const app = new PageApp(page, {
+				userName: randomTestUser,
+				password: Config.PASSWORD,
+			});
 
-      await retry(() => app.service.user.init());
+			await retry(() => app.service.user.init());
 
-      await use(app);
-    } catch (error) {
-      throw Error(`Failed to initialized app. ${error.message}`);
-    } finally {
-      await page.close();
-      await context.close();
-    }
-  },
+			await use(app);
+		} catch (error) {
+			throw Error(`Failed to initialized app. ${error.message}`);
+		} finally {
+			await page.close();
+			await context.close();
+		}
+	},
 });

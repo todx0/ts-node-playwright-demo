@@ -1,3 +1,3 @@
 export const config = {
-  extends: ['@commitlint/config-conventional'],
+	extends: ['@commitlint/config-conventional'],
 };
