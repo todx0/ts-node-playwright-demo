@@ -1,16 +1,16 @@
 import { test as base } from '@playwright/test';
 import { PageApp } from '@src/pages/PageApp';
-import { getTestUsers } from '@utils/helpers';
+import { Config } from '@utils/Config';
+import { getTestUsers, retry } from '@utils/helpers';
 
-const testUsers = getTestUsers();
+Config.validate();
 
 export const test = base.extend<CustomFixtures>({
   randomTestUser: async ({}, use: any, workerInfo: any) => {
-    if (!testUsers) throw new Error('No test users.');
-
+    const testUsers = getTestUsers();
     const userIndex = workerInfo.workerIndex % testUsers.length;
-
-    if (!process.env.CI) console.info('Using user:', testUsers[userIndex]);
+    const testUser = testUsers[userIndex];
+    if (!process.env.CI) console.info(`Using user: ${testUser}`);
 
     await use(testUsers[userIndex]);
   },
@@ -19,16 +19,20 @@ export const test = base.extend<CustomFixtures>({
     const context = await browser.newContext();
     const page = await context.newPage();
 
-    const app = new PageApp(page, {
-      userName: randomTestUser,
-      password: process.env.PASSWORD!,
-    });
+    try {
+      const app = new PageApp(page, {
+        userName: randomTestUser,
+        password: Config.PASSWORD,
+      });
 
-    await app.service.user.init();
+      await retry(() => app.service.user.init());
 
-    await use(app);
-
-    await page.close();
-    await context.close();
+      await use(app);
+    } catch (error) {
+      throw Error(`Failed to initialized app. ${error.message}`);
+    } finally {
+      await page.close();
+      await context.close();
+    }
   },
 });

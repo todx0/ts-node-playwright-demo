@@ -6,6 +6,7 @@ declare global {
   interface CustomFixtures extends AppFixture {
     randomTestUser: string;
   }
+
   interface UserCredentials {
     userName: string;
     password: string;

@@ -8,11 +8,14 @@ export class PageApp {
   public readonly login: Login;
   public readonly service: ApiClient;
   public readonly webTable: WebTables;
+  public readonly user: UserCredentials;
 
   constructor(page: Page, user: UserCredentials) {
+    this.user = user;
+    this.page = page;
+
     this.service = new ApiClient(user);
 
-    this.page = page;
     this.login = new Login(page);
     this.webTable = new WebTables(page);
   }
