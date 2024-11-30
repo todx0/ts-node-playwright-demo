@@ -24,7 +24,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Install Github Actions Reporter
-        run: npm install @estruyf/github-actions-reporter
+        run: pnpm install @estruyf/github-actions-reporter
 
       - name: Run Tests (API)
         run: pnpm run test:api
