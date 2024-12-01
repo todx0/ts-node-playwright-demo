@@ -8,7 +8,7 @@ Tests are developed in TypeScript with [Playwright](https://playwright.dev)
 - [Page Object Pattern](https://playwright.dev/docs/pom)
 - Github Actions for CI/CD workflows
 - [biome](https://biomejs.dev/) (lint and formatting)
-- [Commit lint](https://github.com/conventional-changelog/commitlint) and [Commitizen](https://github.com/commitizen/cz-cli#making-your-repo-commitizen-friendly)
+- [Commitizen](https://github.com/commitizen/cz-cli#making-your-repo-commitizen-friendly)
 - [husky](https://typicode.github.io/husky/) pre-commit hooks
 
 ## Usage
