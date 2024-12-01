@@ -21,6 +21,9 @@ importers:
       '@estruyf/github-actions-reporter':
         specifier: ^1.9.2
         version: 1.9.2(@playwright/test@1.49.0)
+      '@types/node':
+        specifier: ^22.10.1
+        version: 22.10.1
       commitizen:
         specifier: ^4.3.1
         version: 4.3.1(@types/node@22.10.1)(typescript@5.7.2)
@@ -838,7 +841,6 @@ snapshots:
   '@types/node@22.10.1':
     dependencies:
       undici-types: 6.20.0
-    optional: true
 
   ajv@8.17.1:
     dependencies:
@@ -1380,8 +1382,7 @@ snapshots:
   typescript@5.7.2:
     optional: true
 
-  undici-types@6.20.0:
-    optional: true
+  undici-types@6.20.0: {}
 
   undici@5.28.4:
     dependencies:
