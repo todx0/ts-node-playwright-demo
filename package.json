@@ -3,12 +3,16 @@
 	"scripts": {
 		"test:ui": "pnpm exec playwright test -g @UI",
 		"test:api": "pnpm exec playwright test -g @API",
-		"commit": "git add . && pnpm exec git-cz",
 		"biome:fmt": "biome format . --write"
 	},
 	"config": {
 		"commitizen": {
 			"path": "./node_modules/cz-conventional-changelog"
+		}
+	},
+	"husky": {
+		"hooks": {
+			"prepare-commit-msg": "exec < /dev/tty && pnpm exec cz --hook || true"
 		}
 	},
 	"dependencies": {
