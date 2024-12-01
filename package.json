@@ -5,6 +5,7 @@
 		"test:api": "pnpm exec playwright test -g @API",
 		"biome:fmt": "biome format . --write"
 	},
+
 	"config": {
 		"commitizen": {
 			"path": "./node_modules/cz-conventional-changelog"
@@ -12,7 +13,7 @@
 	},
 	"husky": {
 		"hooks": {
-			"prepare-commit-msg": "exec < /dev/tty && pnpm exec cz --hook || true"
+			"prepare-commit-msg": "exec < /dev/tty && pnpm exec git-cz --hook || true"
 		}
 	},
 	"dependencies": {
