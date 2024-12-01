@@ -27,10 +27,4 @@ Run UI tests manually:
 pnpm run test:ui
 ```
 
-Commit changes:
-```bash
-pnpm run commit
-```
-This will trigger husky pre-commit hook for biome formatting and run commitizen for commit message.
-
 
