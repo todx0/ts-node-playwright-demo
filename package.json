@@ -1,5 +1,5 @@
 {
-	"name": "node-playwright-boilerplate",
+	"name": "ts-node-playwright-demo",
 	"scripts": {
 		"test:ui": "pnpm exec playwright test -g @UI",
 		"test:api": "pnpm exec playwright test -g @API",
