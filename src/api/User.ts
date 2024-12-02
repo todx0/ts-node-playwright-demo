@@ -10,18 +10,22 @@ export class User {
 
 	async resetTokenIfExpired() {
 		if (!this.userDetails.token || this.isExpired(this.userDetails)) {
-			const tokenResponse = await generateToken(this.userDetails);
-			this.userDetails.token = tokenResponse.token;
+			try {
+				const tokenResponse = await generateToken(this.userDetails);
+				this.userDetails.token = tokenResponse.token;
+			} catch (error) {
+				throw new Error(`Token generation failed: ${error.message}`);
+			}
 		}
 	}
 
 	isExpired(userDetails: UserDetails) {
-		return new Date(userDetails?.expires) > new Date();
+		return new Date(userDetails?.expires) <= new Date();
 	}
 
 	async init() {
 		await this.resetTokenIfExpired();
-		const loginResponse: LoginResponse = await login(this.userDetails);
+		const loginResponse = await login(this.userDetails);
 		this.lastLoginDetails = loginResponse;
 		return this.lastLoginDetails;
 	}

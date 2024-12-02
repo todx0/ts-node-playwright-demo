@@ -12,7 +12,7 @@ export async function addBooks(user: User, list: ListOfISBNs) {
 }
 
 export async function deleteBooks(user: User) {
-	if (!user.lastLoginDetails.userId) throw Error('No userId provided.');
+	if (!user.lastLoginDetails?.userId) throw Error('No userId provided.');
 	const response: GenericResponse = await HttpAgent.getInstance().delete(
 		user,
 		`${process.env.URL}/BookStore/v1/Books?UserId=${user.lastLoginDetails.userId}`,

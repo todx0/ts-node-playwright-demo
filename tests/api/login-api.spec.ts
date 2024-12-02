@@ -27,19 +27,19 @@ test.describe('Authentication', { tag: '@API' }, () => {
 
 	test('CRUD User', async ({ page, app }) => {
 		const userCredentials = {
-			userName: 'testUserx5558',
+			userName: 'testUserx41000',
 			password: 'MultipassportKD3307!',
 		};
-		const createUserResponse = await app.service.account.user.create(userCredentials);
+		const createUserResponse = await app.service.account.createUser(userCredentials);
 		const newApp = new PageApp(page, userCredentials);
 		await newApp.service.user.init();
-		const getUserResponseAfterCreate = await newApp.service.account.user.get(newApp.service.user.lastLoginDetails.userId);
+		const getUserResponseAfterCreate = await newApp.service.account.getUser(newApp.service.user.lastLoginDetails.userId);
 
 		expect(createUserResponse.userID).toEqual(newApp.service.user.lastLoginDetails.userId);
 		expect(createUserResponse.username).toEqual(userCredentials.userName);
 		expect(getUserResponseAfterCreate.userId).toEqual(newApp.service.user.lastLoginDetails.userId);
 		expect(getUserResponseAfterCreate.username).toEqual(userCredentials.userName);
 
-		await newApp.service.account.user.delete(createUserResponse.userID);
+		await newApp.service.account.deleteUser(createUserResponse.userID);
 	});
 });
