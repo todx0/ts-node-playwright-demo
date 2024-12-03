@@ -1,9 +1,7 @@
 name: Run Tests
 
 on:
-  push:
-    branches:
-      - master
+  workflow_dispatch:
 
 jobs:
   run_tests:
@@ -16,34 +14,34 @@ jobs:
         with:
           node-version: 23
 
+      - name: Install pnpm
+        run: npm install -g pnpm
+
       - name: Install dependencies
-        run: pnpm i
+        run: pnpm install
 
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-
-      - name: Install Github Actions Reporter
-        run: npm install @estruyf/github-actions-reporter
+        run: pnpm playwright install --with-deps
 
       - name: Run Tests (API)
-        run: pnpn run test:api
+        run: pnpm run test:api
         env:
           URL: ${{ secrets.URL }}
-          USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
+          CI: ${{ secrets.CI }}
 
       - name: Run Tests (UI)
-        run: pnpn run test:ui
+        run: pnpm run test:ui
         env:
           URL: ${{ secrets.URL }}
-          USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
+          CI: ${{ secrets.CI }}
 
       - name: Upload test report
         if: success() || failure()
         uses: actions/upload-artifact@v4
         with:
-          name: dev-full-ui-test-report
+          name: playwright-report
           retention-days: 1
           path: |
             ./playwright-report/

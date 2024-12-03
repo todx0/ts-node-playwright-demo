@@ -1,16 +1,26 @@
 {
-  "name": "node-playwright-boilerplate",
-  "scripts": {
-    "test:ui": "pnpm exec playwright test -g @UI",
-    "test:api": "pnpm exec playwright test -g @API"
-  },
-  "dependencies": {
-    "@estruyf/github-actions-reporter": "^1.9.2",
-    "@playwright/test": "^1.49.0",
-    "dotenv": "^16.4.5",
-    "dprint": "^0.47.5"
-  },
-  "devDependencies": {
-    "@types/node": "^22.9.4"
-  }
+	"name": "ts-node-playwright-demo",
+	"scripts": {
+		"test:ui": "pnpm exec playwright test -g @UI",
+		"test:api": "pnpm exec playwright test -g @API",
+		"biome:fmt": "biome format . --write"
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
+	},
+	"dependencies": {
+		"@playwright/test": "^1.49.0",
+		"dotenv": "^16.4.5"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@estruyf/github-actions-reporter": "^1.9.2",
+		"@types/node": "^22.10.1",
+		"commitizen": "^4.3.1",
+		"cz-conventional-changelog": "^3.3.0",
+		"husky": "^9.1.7"
+	},
+	"packageManager": "pnpm@9.14.4+sha512.c8180b3fbe4e4bca02c94234717896b5529740a6cbadf19fa78254270403ea2f27d4e1d46a08a0f56c89b63dc8ebfd3ee53326da720273794e6200fcf0d184ab"
 }

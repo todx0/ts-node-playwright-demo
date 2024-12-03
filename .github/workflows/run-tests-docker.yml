@@ -1,0 +1,53 @@
+name: Run Tests (Docker)
+on: 
+  workflow_dispatch:
+jobs:
+  run_tests:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+     - name: Checkout
+       uses: actions/checkout@v4
+     
+     - name: Build Docker Image
+       run: |
+         docker build -t playwright-tests .
+
+     - name: Run Tests (API)
+       run: |
+        docker run --rm \
+        -v ${{ github.workspace }}/test-results:/app/test-results \
+        -v ${{ github.workspace }}/playwright-report:/app/playwright-report \
+        -w /app \
+        -e URL=${{ secrets.URL }} \
+        -e PASSWORD=${{ secrets.PASSWORD }} \
+        -e CI=${{ secrets.CI }} \
+        playwright-tests \
+        pnpm run test:api
+
+     - name: List Playwright Report Contents
+       run: |
+        ls -al ${{ github.workspace }}/playwright-report
+
+     - name: Run Tests (UI)
+       run: |
+        docker run --rm \
+        -v ${{ github.workspace }}/test-results:/app/test-results \
+        -v ${{ github.workspace }}/playwright-report:/app/playwright-report \
+        -w /app \
+        -e URL=${{ secrets.URL }} \
+        -e PASSWORD=${{ secrets.PASSWORD }} \
+        -e CI=${{ secrets.CI }} \
+        playwright-tests \
+        pnpm run test:ui
+       
+     - name: Upload test report
+       if: success() || failure()
+       uses: actions/upload-artifact@v4
+       with:
+        name: playwright-report
+        retention-days: 1
+        path: |
+          ${{ github.workspace }}/test-results/
+          ${{ github.workspace }}/playwright-report/
+       
