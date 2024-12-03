@@ -9,8 +9,7 @@ export default defineConfig({
 	retries: process.env.CI ? 2 : 0,
 	reporter: process.env.CI
 		? [
-				['blob'],
-				['html'],
+				['allure-playwright'],
 				[
 					'@estruyf/github-actions-reporter',
 					{
