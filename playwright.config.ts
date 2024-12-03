@@ -7,20 +7,7 @@ export default defineConfig({
 	workers: 4,
 	forbidOnly: !!process.env.CI,
 	retries: process.env.CI ? 2 : 0,
-	reporter: process.env.CI
-		? [
-				['allure-playwright'],
-				[
-					'@estruyf/github-actions-reporter',
-					{
-						title: '',
-						showError: true,
-						useDetails: true,
-						showTags: false,
-					},
-				],
-			]
-		: 'list',
+	reporter: process.env.CI ? [['allure-playwright'], ['list'], ['blob'], ['github']] : 'list',
 	use: {
 		baseURL: process.env.URL,
 		trace: 'on-first-retry',

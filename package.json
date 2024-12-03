@@ -16,7 +16,6 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
-		"@estruyf/github-actions-reporter": "^1.9.2",
 		"@types/node": "^22.10.1",
 		"allure-playwright": "^3.0.6",
 		"commitizen": "^4.3.1",

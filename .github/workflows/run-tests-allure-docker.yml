@@ -1,4 +1,5 @@
-name: Run Tests (Allure, Docker)
+name: Run tests in Docker with Allure report
+
 on:
   workflow_dispatch:
 
@@ -9,7 +10,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 23
