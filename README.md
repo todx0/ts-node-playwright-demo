@@ -17,9 +17,9 @@ Tests are developed in TypeScript with [Playwright](https://playwright.dev)
 
 See Github Actions workflows.
 
-[Run tests](.github/workflows/run-tests.yml) Runs tests with default reporting
-[Run tests with Allure report](.github/workflows/run-tests-allure.yml) Run tests with Allure reporting and uploads to [GitHub Pages](https://todx0.github.io/ts-node-playwright-demo)
-[Run tests in Docker with Allure report](.github/workflows/run-tests-allure-docker.yml) Wraps test execution in Docker container and uploads output to [GitHub Pages](https://todx0.github.io/ts-node-playwright-demo)
+- [Run tests](.github/workflows/run-tests.yml) Runs tests with default reporting
+- [Run tests with Allure report](.github/workflows/run-tests-allure.yml) Run tests with Allure reporting and uploads to [GitHub Pages](https://todx0.github.io/ts-node-playwright-demo)
+- [Run tests in Docker with Allure report](.github/workflows/run-tests-allure-docker.yml) Wraps test execution in Docker container and uploads output to [GitHub Pages](https://todx0.github.io/ts-node-playwright-demo)
 
 
 Run tests manually:
