@@ -1,0 +1,8 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","2063","Get Books","chromium","Tue Dec 03 19:48:14 GMT 2024","passed","Tue Dec 03 19:48:16 GMT 2024","Bookstore","api/login-api.spec.ts","",""
+"","7966","Invalid login","chromium","Tue Dec 03 19:48:21 GMT 2024","passed","Tue Dec 03 19:48:29 GMT 2024","Login","ui/login-ui.spec.ts","",""
+"","4585","CRUD User","chromium","Tue Dec 03 19:48:14 GMT 2024","passed","Tue Dec 03 19:48:19 GMT 2024","Authentication","api/login-api.spec.ts","",""
+"","4422","Add Books","chromium","Tue Dec 03 19:48:14 GMT 2024","passed","Tue Dec 03 19:48:18 GMT 2024","Bookstore","api/login-api.spec.ts","",""
+"","3195","Get Authorized","chromium","Tue Dec 03 19:48:14 GMT 2024","passed","Tue Dec 03 19:48:17 GMT 2024","Authentication","api/login-api.spec.ts","",""
+"","4280","Web Table match snapshot","chromium","Tue Dec 03 19:48:21 GMT 2024","passed","Tue Dec 03 19:48:25 GMT 2024","Web Tables","ui/web-tables.spec.ts","",""
+"","9906","Valid login","chromium","Tue Dec 03 19:48:21 GMT 2024","passed","Tue Dec 03 19:48:31 GMT 2024","Login","ui/login-ui.spec.ts","",""
